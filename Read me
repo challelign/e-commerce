@@ -1,0 +1,56 @@
+-> errorHandler.js
+ error Handler class is called by middleware error.js class
+ const ErrorHandler = require('../utils/errorHandler');
+
+ and also called in productController.js
+const ErrorHandler = require('../utils/errorHandler')
+
+
+
+-> error.js
+this class called in app.js
+const errorMiddleware = require('./middlewares/errors')
+
+-> catchAsyncErrors.js
+this class handle database table atribute like name, title,
+and catch the error while create,update and delete values to the mongodb
+so this class called in productController.js call
+
+const catchAsyncErrors = require('../middlewares/catchAsyncErrors')
+
+->app.js
+form this js file route , error, auth and other files called
+// Import all routes
+
+const products = require('./routes/product');
+const auth = require('./routes/auth');
+app.use('/api/v1', products);
+app.use('/api/v1', auth);
+
+// Middleware to handler error
+app.use(errorMiddleware);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
