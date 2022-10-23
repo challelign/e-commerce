@@ -21,16 +21,28 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 // Get ALL prducts   => /api/v1/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
-    const resPerPage = 12;
+    const resPerPage = 4;
     const productsCount = await Product.countDocuments();
 
-    const apifFeatures = new APIFeatures(Product.find(), req.query)
+    const apiFeatures = new APIFeatures(Product.find(), req.query)
         .search()
         .filter()
         .pagination(resPerPage)
 
-    // const products = await Product.find();
-    const products = await apifFeatures.query;
+    /*
+
+        let products = await apiFeatures.query;
+        let filteredProductsCount = products.length;
+
+        apiFeatures.pagination(resPerPage)
+
+        console.log(filteredProductsCount)
+        // const products = await Product.find();
+        products = await apiFeatures.query;
+        */
+
+
+    const products = await apiFeatures.query;
 
 
     // setTimeout(() => {
@@ -39,6 +51,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
         // count: products.length,
         productsCount,
         resPerPage,
+        // filteredProductsCount,
         products
 
         // message: 'This route will show all products in database.'

@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import '../../App.css'
-import {Route} from 'react-router-dom'
+import {Link, Route} from 'react-router-dom'
 import MetaData from "./MetaData";
 import Search from "./Search";
 
@@ -11,7 +11,9 @@ const Header = () => {
             <nav className="navbar row">
                 <div className="col-12 col-md-3">
                     <div className="navbar-brand">
-                        <img src="/images/logo.png"/>
+                        <Link to={'/'}>
+                            <img src="/images/logo.png"/>
+                        </Link>
                     </div>
                 </div>
 
