@@ -21,8 +21,8 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 // Get ALL prducts   => /api/v1/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
-    const resPerPage = 4;
-    const productCount = await Product.countDocuments();
+    const resPerPage = 8;
+    const productsCount = await Product.countDocuments();
 
     const apifFeatures = new APIFeatures(Product.find(), req.query)
         .search()
@@ -33,14 +33,17 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     const products = await apifFeatures.query;
 
 
+    // setTimeout(() => {
     res.status(200).json({
         success: true,
-        count: products.length,
-        productCount,
+        // count: products.length,
+        productsCount,
+        resPerPage,
         products
 
         // message: 'This route will show all products in database.'
     })
+    // },2000);
 })
 
 
@@ -172,12 +175,12 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
 
     const rating = product.rating = product.reviews.reduce((acc, item) => item.rating + acc, 0) / reviews.length
 
-    await Product.findByIdAndUpdate(req.query.productId,{
+    await Product.findByIdAndUpdate(req.query.productId, {
         reviews,
         rating,
         numOfReviews
-    },{
-        new:true,
+    }, {
+        new: true,
         runValidators: true,
         useFindAndModify: false
     })

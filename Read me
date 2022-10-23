@@ -31,7 +31,8 @@ app.use('/api/v1', auth);
 app.use(errorMiddleware);
 
 
-
+npm i axios react-alert react-alert-template-basic react-bootstrap react-helmet react-redux redux redux-thunk
+redux-devtools-extension react-router-dom
 
 
 
