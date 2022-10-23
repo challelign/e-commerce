@@ -1,7 +1,7 @@
 import React, {useEffect, useState, Fragment} from "react";
 import MetaData from "./layout/MetaData";
 import {useDispatch, useSelector} from "react-redux";
-import Slider from 'rc-slider'
+import Slider , {Range} from 'rc-slider'
 // import Range from "rc-slider"
 import 'rc-slider/assets/index.css';
 
@@ -13,8 +13,10 @@ import {useAlert} from "react-alert";
 import Pagination from "react-js-pagination";
 
 
+/*
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range)
+*/
 
 
 const Home = ({match}) => {
@@ -58,7 +60,8 @@ const Home = ({match}) => {
                                 <Fragment>
                                     <div className="col-6 col-md-3 mt-5 mb-5">
                                         <div className="px-5">
-                                            <Range
+                                            <Slider
+                                                range
                                                 marks={{
                                                     1: `$1`,
                                                     1000: `$1000`
@@ -66,12 +69,14 @@ const Home = ({match}) => {
                                                 min={1}
                                                 max={1000}
                                                 defaultValue={[1, 1000]}
+                                                value={price}
                                                 tipFormatter={value => `$${value}`}
                                                 tipProps={{
                                                     placement: "top",
-                                                    visible: true
+                                                    visible: true,
+                                                    prefixCls:'rc-slider-tooltip',
                                                 }}
-                                                value={price}
+
                                                 onChange={price => setPrice(price)}
                                             />
                                         </div>
