@@ -12,7 +12,7 @@ import {getProducts} from "../actions/productActions";
 import {useAlert} from "react-alert";
 import Pagination from "react-js-pagination";
 
-const { createSliderWithTooltip } = Slider;
+const {createSliderWithTooltip} = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 /*
 const { createSliderWithTooltip } = Slider;
@@ -27,6 +27,7 @@ const Home = ({match}) => {
     const [price, setPrice] = useState([1, 1000])
 
     const [category, setCategory] = useState('')
+    const [rating, setRating] = useState(0)
     const categories = [
         'Electronics',
         'Cameras',
@@ -54,19 +55,19 @@ const Home = ({match}) => {
             return alert.error(error)
         }
 
-        dispatch(getProducts(keyword, currentPage, price, category))
+        dispatch(getProducts(keyword, currentPage, price, category, rating))
 
-    }, [dispatch, alert, error, keyword, currentPage, price, category])
+    }, [dispatch, alert, error, keyword, currentPage, price, category, rating])
 
 
     function setCurrentPageNo(pageNumber) {
         setCurrentPage(pageNumber)
     }
 
-/*    let count = productsCount;
-    if (keyword) {
-        count = filteredProductsCount
-    }*/
+    /*    let count = productsCount;
+        if (keyword) {
+            count = filteredProductsCount
+        }*/
     return (
         <Fragment>
 
@@ -122,7 +123,33 @@ const Home = ({match}) => {
                                                     ))}
                                                 </ul>
                                             </div>
+                                            <hr className="my-3"/>
 
+                                            <div className="mt-5">
+                                                <h4 className="mb-3">
+                                                    Ratings
+                                                </h4>
+
+                                                <ul className="pl-0">
+                                                    {[5, 4, 3, 2, 1].map(star => (
+                                                        <li
+                                                            style={{
+                                                                cursor: 'pointer',
+                                                                listStyleType: 'none'
+                                                            }}
+                                                            key={star}
+                                                            onClick={() => setRating(star)}>
+                                                            <div className="rating-outer">
+                                                                <div className="rating-inner"
+                                                                     style={{
+                                                                         width: `${star * 20}%`
+                                                                     }}>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="col-6 col-md-9">

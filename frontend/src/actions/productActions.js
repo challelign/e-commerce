@@ -16,15 +16,15 @@ import {
 
 // let productGet = "http://127.0.0.1:4000/api/v1/products"
 
-export const getProducts = (keyword = '',currentPage = 1, price, category)=>async (dispatch) =>{
+export const getProducts = (keyword = '',currentPage = 1, price, category,rating)=>async (dispatch) =>{
     try {
         dispatch ({type:ALL_PRODUCTS_REQUEST})
 
-        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}`
+        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`
 
 
         if (category){
-            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}`
+            link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}&ratings[gte]=${rating}`
 
         }
 
