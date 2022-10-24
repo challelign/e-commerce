@@ -1,3 +1,6 @@
+
+    "react-router-dom": "5.3",
+       "rc-slider": "^9.6.5",
 -> errorHandler.js
  error Handler class is called by middleware error.js class
  const ErrorHandler = require('../utils/errorHandler');

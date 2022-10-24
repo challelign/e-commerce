@@ -1,7 +1,7 @@
 import React, {useEffect, useState, Fragment} from "react";
 import MetaData from "./layout/MetaData";
 import {useDispatch, useSelector} from "react-redux";
-import Slider, {Range} from 'rc-slider'
+import Slider from 'rc-slider'
 // import Range from "rc-slider"
 import 'rc-slider/assets/index.css';
 
@@ -12,7 +12,8 @@ import {getProducts} from "../actions/productActions";
 import {useAlert} from "react-alert";
 import Pagination from "react-js-pagination";
 
-
+const { createSliderWithTooltip } = Slider;
+const Range = createSliderWithTooltip(Slider.Range);
 /*
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range)
@@ -81,11 +82,10 @@ const Home = ({match}) => {
                                 <Fragment>
                                     <div className="col-6 col-md-3 mt-5 mb-5">
                                         <div className="px-5">
-                                            <Slider
-                                                range
+                                            <Range
                                                 marks={{
                                                     1: `$1`,
-                                                    1000: `$1000`
+                                                    1000: `$1000`,
                                                 }}
                                                 min={1}
                                                 max={1000}
