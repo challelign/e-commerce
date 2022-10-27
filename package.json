@@ -8,7 +8,7 @@
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server",
     "seeder": "node backend/utils/seeder.js",
-    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Challelign Tilahun",
   "license": "ISC",
@@ -16,18 +16,16 @@
     "5": "^0.0.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
-    "cloudinary": "^1.23.0",
+    "cloudinary": "^1.32.0",
     "cookie-parser": "^1.4.6",
-
-    "express-fileupload": "^1.2.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.7.0",
     "mongoose": "^6.4.0",
-
-    "stripe": "^8.128.0",
     "nodemailer": "^6.7.5",
+    "stripe": "^8.128.0",
     "v": "^0.3.0",
     "validator": "^13.7.0"
   },

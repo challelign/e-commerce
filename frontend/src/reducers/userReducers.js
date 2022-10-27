@@ -1,54 +1,49 @@
 import {
-    LOGIN_REQUEST,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL,
-    CLEAR_ERRORS,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  CLEAR_ERRORS,
+  REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL,
+} from "../constants/userConstants.js";
 
-    REGISTER_USER_REQUEST,
-    REGISTER_USER_SUCCESS,
-    REGISTER_USER_FAIL ,
-} from '../constants/userConstants.js'
+export const authReducer = (state = { user: {} }, action) => {
+  switch (action.type) {
+    case REGISTER_USER_REQUEST:
+    case LOGIN_REQUEST:
+      return {
+        loading: true,
+        isAuthenticated: false,
+      };
 
-export const authReducer = (state = {user: {}}, action) => {
+    case LOGIN_SUCCESS:
+    case REGISTER_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isAuthenticated: true,
+        user: action.payload,
+      };
 
-    switch (action.type) {
-        
-        case REGISTER_USER_REQUEST:
-        case LOGIN_REQUEST:
-            return {
-                loading:true,
-                isAuthenticated:false,
-            }
+    case LOGIN_FAIL:
+    case REGISTER_USER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        isAuthenticated: false,
+        user: null,
+        error: action.payload,
+      };
 
-        case LOGIN_SUCCESS:
-        case REGISTER_USER_SUCCESS:
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+    default:
+      return state;
+  }
+};
 
-            return {
-                ...state,
-                loading: false,
-                isAuthenticated: true,
-                user: action.payload
-            }
-
-        case LOGIN_FAIL:
-        case REGISTER_USER_FAIL:
-            return {
-                ...state,
-                loading: false,
-                isAuthenticated: false,
-                user: null,
-                error:action.payload
-            }
-
-        case CLEAR_ERRORS:
-            return {
-                ...state,
-                error: null
-            }
-        default:
-            return state
-
-    }
-}
-
-export default authReducer
+export default authReducer;
