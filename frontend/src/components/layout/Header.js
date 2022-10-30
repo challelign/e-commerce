@@ -6,12 +6,19 @@ import Search from "./Search";
 import {useAlert} from 'react-alert'
 import {useDispatch, useSelector} from "react-redux";
 
+import {logout} from "../../actions/userActions";
+
 const Header = () => {
     const alert = useAlert();
     const dispatch = useDispatch();
 
     const {user, loading} = useSelector(state => state.auth)
 
+    const logoutHandler = () =>{
+        dispatch(logout());
+        alert.success('Logged out Successfully.')
+
+    }
     return (
         <Fragment>
             <nav className="navbar row">
@@ -55,7 +62,7 @@ const Header = () => {
                                 <Link className="dropdown-item" to="/orders/me">Orders</Link>
                                 <Link className="dropdown-item" to="/me">Profile</Link>
                                 {/*<Link className="dropdown-item text-danger" to="/" onClick={logoutHandler}>*/}
-                                <Link className="dropdown-item text-danger" to="/">
+                                <Link className="dropdown-item text-danger" to="/" onClick={logoutHandler}>
                                     Logout
                                 </Link>
 
