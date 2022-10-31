@@ -2,7 +2,7 @@ import React, {Fragment, useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useAlert} from "react-alert";
 import MetaData from "../layout/MetaData";
-import {updateProfile, loadUser, clearErrors, register} from "../../actions/userActions";
+import {updateProfile, loadUser, clearErrors} from "../../actions/userActions";
 import {UPDATE_PROFILE_RESET} from "../../constants/userConstants";
 
 

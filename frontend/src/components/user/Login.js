@@ -11,7 +11,7 @@ const Login = ({ history }) => {
   const [password, setPassword] = useState();
   const alert = useAlert();
   const dispatch = useDispatch();
-
+  //isAuthenticated, error, loading parametrs call from userReducers.js  authReducer method
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.auth
   ); // auth is from userReducers
