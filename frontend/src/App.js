@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import ProductDetails from "./components/product/ProductDetails";
 import React from "react";
 
+import Profile from "./components/user/Profile";
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
 import {loadUser} from "./actions/userActions";
@@ -27,6 +28,7 @@ function App() {
 
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/me" component={Profile} />
           </div>
           <Footer />
         </div>
