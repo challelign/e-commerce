@@ -22,6 +22,16 @@ import {
   UPDATE_PASSWORD_RESET,
   UPDATE_PASSWORD_FAIL,
 
+  FORGET_PASSWORD_REQUEST,
+  FORGET_PASSWORD_SUCCESS,
+  FORGET_PASSWORD_FAIL,
+  NEW_PASSWORD_REQUEST,
+  NEW_PASSWORD_SUCCESS,
+  NEW_PASSWORD_FAIL,
+
+
+
+
 } from "../constants/userConstants.js";
 
 export const authReducer = (state = { user: {} }, action) => {
@@ -120,6 +130,52 @@ export const userReducer = (state = {}, action) => {
         ...state,
         loading:false,
         error:action.payload,
+      }
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+}
+
+
+//Forget password reducer
+export const forgetPasswordReducer = (state = {}, action) => {
+
+  switch (action.type) {
+    case FORGET_PASSWORD_REQUEST:
+    case NEW_PASSWORD_REQUEST:
+      return {
+
+        ...state,
+        loading: true,
+        error:null
+      }
+    case FORGET_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        message:action.payload,
+      }
+
+    case NEW_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        success:action.payload,
+      }
+
+    case FORGET_PASSWORD_FAIL:
+    case NEW_PASSWORD_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error:action.payload,
+
       }
 
     case CLEAR_ERRORS:

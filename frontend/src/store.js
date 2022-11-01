@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {productReducers ,productDetailsReducer} from "./reducers/productReducers";
 
-import {authReducer, userReducer} from './reducers/userReducers'
+import {authReducer, userReducer,forgetPasswordReducer} from './reducers/userReducers'
 
 
 const reducer = combineReducers({
@@ -11,7 +11,8 @@ const reducer = combineReducers({
     products:productReducers,
     productDetails:productDetailsReducer,
     auth :authReducer,
-    user:userReducer
+    user:userReducer,
+    forgetPasswordRed: forgetPasswordReducer
 })
 
 
