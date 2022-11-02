@@ -17,6 +17,7 @@ import UpdateProfile from "./components/user/UpdateProfile";
 import UpdatePassword from "./components/user/UpdatePassword"
 import ForgetPassword from "./components/user/ForgetPassword";
 import NewPassword from "./components/user/NewPassword";
+import Cart from "./components/cart/Cart";
 function App() {
   useEffect(() =>{
     store.dispatch(loadUser())
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" component={Home} exact />
             <Route path="/search/:keyword" component={Home} />
             <Route path="/product/:id" component={ProductDetails} exact />
+            <Route path="/cart" component={Cart} exact />
 
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />

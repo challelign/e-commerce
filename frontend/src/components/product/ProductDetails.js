@@ -6,6 +6,8 @@ import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
 import {getProductDetails, clearErrors} from "../../actions/productActions";
 
+import {addItemToCart} from "../../actions/cartActions";
+
 const ProductDetails = ({match}) => {
     const [quantity , setQuantity] = useState(1)
 
@@ -39,6 +41,10 @@ const ProductDetails = ({match}) => {
         setQuantity(qty)
     }
 
+    const addToCart = () =>{
+        dispatch(addItemToCart(match.params.id, quantity))
+        alert.success('Item Added to Cart')
+    }
 
     return (
         <Fragment>
@@ -76,7 +82,8 @@ const ProductDetails = ({match}) => {
 
                                 <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
                             </div>
-                            <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4">Add to Cart
+                            <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={ product.stock === 0} onClick={addToCart}>
+                                Add to Cart
                             </button>
                             <hr/>
                             <p>Status: <span id="stock_status"
