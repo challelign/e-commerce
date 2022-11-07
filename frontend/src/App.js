@@ -18,6 +18,8 @@ import UpdatePassword from "./components/user/UpdatePassword"
 import ForgetPassword from "./components/user/ForgetPassword";
 import NewPassword from "./components/user/NewPassword";
 import Cart from "./components/cart/Cart";
+import Shipping from "./components/cart/Shipping";
+import ConfirmOrder from "./components/cart/ConfirmOrder";
 function App() {
   useEffect(() =>{
     store.dispatch(loadUser())
@@ -32,6 +34,9 @@ function App() {
             <Route path="/search/:keyword" component={Home} />
             <Route path="/product/:id" component={ProductDetails} exact />
             <Route path="/cart" component={Cart} exact />
+            <ProtectedRoute path="/shipping" component={Shipping}  />
+            <ProtectedRoute path="/order/confirm" component={ConfirmOrder}  />
+
 
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />

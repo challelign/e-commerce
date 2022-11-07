@@ -1,3 +1,7 @@
+
+ To install all the depen
+ use npm i depname  --legacy-peer-deps
+
  I use git branch name =  chashop
 
     "react-router-dom": "5.3",
