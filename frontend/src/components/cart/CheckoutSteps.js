@@ -11,7 +11,7 @@ const CheckoutSteps = ({shipping, confirmOrder, payment}) => {
         <Fragment>
             <div className="checkout-progress d-flex justify-content-center mt-5">
 
-                {shipping ? <Link to='shipping' className='float-right'>
+                {shipping ? <Link to='/shipping' className='float-right'>
                         <div className="triangle2-active"></div>
                         <div className="step active-step">Shipping</div>
                         <div className="triangle-active"></div>
