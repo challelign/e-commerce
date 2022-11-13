@@ -5,6 +5,7 @@ import {useAlert} from "react-alert";
 import CheckoutSteps from "./CheckoutSteps";
 import {useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement} from "@stripe/react-stripe-js";
 
+import {createOrder, clearErrors} from "../../actions/orderActions";
 import axios from "axios";
 
 
@@ -27,20 +28,41 @@ const Payment = ({history}) => {
     const dispatch = useDispatch();
 
 
-    const { user } = useSelector(state => state.auth)
-    const { cartItems, shippingInfo } = useSelector(state => state.cart);
+    const {user} = useSelector(state => state.auth)
+    const {cartItems, shippingInfo} = useSelector(state => state.cart);
+
+    const {error} = useSelector(state => state.newOrder);
 
 
     useEffect(() => {
 
-    })
+        if (error) {
+            alert.error(error);
+            dispatch(clearErrors())
+        }
+
+    }, [dispatch, alert, error])
+
+    const order = {
+        orderItems: cartItems,
+        shippingInfo
+    }
 
     const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'))
+    if (orderInfo) {
+
+        order.itemPrice = orderInfo.itemPrice
+        order.shippingPrice = orderInfo.shippingPrice
+        order.taxPrice = orderInfo.taxPrice
+        order.totalPrice = orderInfo.totalPrice
+    }
+
+
     const paymentData = {
         amount: Math.round(orderInfo.totalPrice * 100)
     }
 
-    const submitHandler = async (e) =>{
+    const submitHandler = async (e) => {
         e.preventDefault();
 
         document.querySelector('#pay_btn').disabled = true;
@@ -48,45 +70,48 @@ const Payment = ({history}) => {
         try {
 
             const config = {
-                headers : {
+                headers: {
                     'Content-Type': 'application/json'
                 }
             }
 
-            res = await axios.post('/api/v1/payment/process', paymentData , config)
+            res = await axios.post('/api/v1/payment/process', paymentData, config)
             const clientSecret = res.data.client_secret;
 
-            if(!stripe || !elements){
+            if (!stripe || !elements) {
                 return
             }
             const result = await stripe.confirmCardPayment(clientSecret, {
-                payment_method :{
+                payment_method: {
                     card: elements.getElement(CardNumberElement),
-                    billing_details:{
-                        name:user.name,
+                    billing_details: {
+                        name: user.name,
                         email: user.email
                     }
                 }
             })
 
-            if(result.error){
+            if (result.error) {
                 alert.error(result.error.message);
-                document.querySelector('#pay_btn').disabled =false
-            }else{
+                document.querySelector('#pay_btn').disabled = false
+            } else {
                 //the payment is processed or not
-                if (result.paymentIntent.status ==='succeeded'){
+                if (result.paymentIntent.status === 'succeeded') {
 
-                //    TODO : New Order
+                    //    TODO : New Order
+                    order.paymentInfo = {
+                        id: result.paymentIntent.id,
+                        status: result.paymentIntent
+                    }
+                    dispatch(createOrder(order))
                     history.push('/success')
-                }
-
-                else{
+                } else {
                     alert.error("There is some issue while paymnet proccessing");
                 }
             }
 
-        }catch (error) {
-            document.querySelector('#pay_btn').disabled =false
+        } catch (error) {
+            document.querySelector('#pay_btn').disabled = false
             alert.error(error.response.data.message)
 
             console.log(error.response.data)
@@ -102,7 +127,7 @@ const Payment = ({history}) => {
             <CheckoutSteps shipping confirmOrder payment/>
             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
-                    <form className="shadow-lg"  onSubmit={submitHandler}>
+                    <form className="shadow-lg" onSubmit={submitHandler}>
                         <h1 className="mb-4">Card Info</h1>
                         <div className="form-group">
                             <label htmlFor="card_num_field">Card Number</label>
@@ -140,7 +165,7 @@ const Payment = ({history}) => {
                             type="submit"
                             className="btn btn-block py-3"
                         >
-                            Pay{` - ${orderInfo &&  orderInfo.totalPrice}`}
+                            Pay{` - ${orderInfo && orderInfo.totalPrice}`}
                         </button>
 
                     </form>
