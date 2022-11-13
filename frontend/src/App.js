@@ -38,10 +38,12 @@ function App() {
 
     async function getStripApiKey() {
       const {data} = await axios.get('/api/v1/stripeapi')
-      setStripeApiKey(data.stripeApiKey) // this call sendStripAPI method from paymentController
+
+      console.log(data.stripeApiKey)
+      setStripeApiKey(data.stripeApiKey) // this call sendStripApi method from paymentController
     }
 
-    getStripApiKey()
+    getStripApiKey();
 
   }, [])
   return (
