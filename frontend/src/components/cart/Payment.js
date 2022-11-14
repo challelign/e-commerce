@@ -51,7 +51,7 @@ const Payment = ({history}) => {
     const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'))
     if (orderInfo) {
 
-        order.itemPrice = orderInfo.itemPrice
+        order.itemsPrice = orderInfo.itemsPrice
         order.shippingPrice = orderInfo.shippingPrice
         order.taxPrice = orderInfo.taxPrice
         order.totalPrice = orderInfo.totalPrice
@@ -101,12 +101,12 @@ const Payment = ({history}) => {
                     //    TODO : New Order
                     order.paymentInfo = {
                         id: result.paymentIntent.id,
-                        status: result.paymentIntent
+                        status: result.paymentIntent.status
                     }
                     dispatch(createOrder(order))
                     history.push('/success')
                 } else {
-                    alert.error("There is some issue while paymnet proccessing");
+                    alert.error("There is some issue while payment processing");
                 }
             }
 
