@@ -10,7 +10,7 @@ exports.processPayment = catchAsyncErrors(async (req, res, next) => {
         amount: req.body.amount,
         currency: 'usd',
 
-        metadata: {integration_check: 'accept_a_payment'}
+        metadata: { integration_check: 'accept_a_payment' }
     })
 
 

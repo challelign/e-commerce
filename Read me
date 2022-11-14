@@ -1,3 +1,15 @@
+#to use Stripe Payment card and other number use either one or two method
+1. Always authenticate	4000002760003184
+This card requires authentication on all transactions, regardless of how the card is set up.
+
+2.Testing interactively with no verification
+When testing interactively, use a card number, such as 4242 4242 4242 4242. Enter the card number in the Dashboard or in any payment form.
+
+Use a valid future date, such as 12/34.
+Use any three-digit CVC (four digits for American Express cards , 567 or 222).
+Use any value you like for other form fields.
+
+
 
  To install all the depen
  use npm i depname  --legacy-peer-deps
