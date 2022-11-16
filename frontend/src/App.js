@@ -28,6 +28,7 @@ import {loadStripe} from "@stripe/stripe-js";
 import Payment from "./components/cart/Payment";
 import OrderSuccess from "./components/cart/OrderSuccess";
 import ListOrders from "./components/order/ListOrders";
+import OrderDetails from "./components/order/OrderDetails";
 
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
             <Route path="/password/reset/:token" component={NewPassword}  exact/>
 
             <ProtectedRoute path="/orders/me" component={ListOrders}  exact/>
+            <ProtectedRoute path="/order/:id" component={OrderDetails}  exact/>
 
           </div>
           <Footer />
