@@ -27,6 +27,7 @@ import {Elements} from "@stripe/react-stripe-js";
 import {loadStripe} from "@stripe/stripe-js";
 import Payment from "./components/cart/Payment";
 import OrderSuccess from "./components/cart/OrderSuccess";
+import ListOrders from "./components/order/ListOrders";
 
 
 function App() {
@@ -77,6 +78,9 @@ function App() {
             <Route path="/password/forget" component={ForgetPassword}  exact/>
 
             <Route path="/password/reset/:token" component={NewPassword}  exact/>
+
+            <ProtectedRoute path="/orders/me" component={ListOrders}  exact/>
+
           </div>
           <Footer />
         </div>

@@ -7,7 +7,7 @@ import {authReducer, userReducer,forgetPasswordReducer} from './reducers/userRed
 
 
 import {cartReducer} from "./reducers/cartReducers";
-import {newOrderReducer} from "./reducers/orederReducers";
+import {newOrderReducer, myOrdersReducer} from "./reducers/orederReducers";
 
 const reducer = combineReducers({
 
@@ -17,7 +17,9 @@ const reducer = combineReducers({
     user:userReducer,
     forgetPasswordRed: forgetPasswordReducer,
     cart:cartReducer,
-    newOrder:newOrderReducer
+    newOrder:newOrderReducer,
+    myOrdersRed: myOrdersReducer
+
 })
 
 
