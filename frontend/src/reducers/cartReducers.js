@@ -5,7 +5,7 @@ import {
 
 } from "../constants/cartConstants";
 // this cartItems contain all information like name , id, image, quantity and other ifo while added to cart
-export const cartReducer = (state = {cartItems: [], shippingInfo: {}} ,action) => {
+export const cartReducer = (state = {cartItems: [], shippingInfo: {}}, action) => {
 
     switch (action.type) {
         case ADD_TO_CART:
@@ -34,7 +34,7 @@ export const cartReducer = (state = {cartItems: [], shippingInfo: {}} ,action) =
         case SAVE_SHIPPING_INFO:
             return {
                 ...state,
-                shippingInfo:action.payload
+                shippingInfo: action.payload
             }
 
         default:
