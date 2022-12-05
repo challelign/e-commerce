@@ -85,6 +85,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
 
 
     } catch (error) {
+        console.log(error.response)
         dispatch({
             type: ORDER_DETAILS_FAIL,
             payload: error.response.data.message,

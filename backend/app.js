@@ -21,10 +21,30 @@ const errorMiddleware = require("./middlewares/errors");
 
 dotenv.config({ path: "backend/config/config.env" });
 
+//original
+/*app.use(express.json());
 
-app.use(express.json());
+app.use(bodyparser.urlencoded({ extended: true }));*/
+//original end
 
-app.use(bodyparser.urlencoded({ extended: true }));
+
+
+
+// start fixing "413 Request Entity Too Large" errors
+/*
+app.use(express.json({limit: "100mb", extended: true}))
+app.use(express.urlencoded({limit: "100mb", extended: true, parameterLimit: 500000}))
+*/
+
+
+
+app.use(express.json({limit: '50mb'}));
+app.use(bodyparser.json({ limit: "200mb" }));
+app.use(bodyparser.urlencoded({ limit: "200mb",  extended: true, parameterLimit: 1000000 }));
+
+
+//end fixing 413
+
 
 app.use(cookieParser());
 app.use(fileUpload());

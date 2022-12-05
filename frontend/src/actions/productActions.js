@@ -12,6 +12,13 @@ import {
     NEW_REVIEW_SUCCESS,
     NEW_REVIEW_RESET,
     NEW_REVIEW_FAIL,
+    ADMIN_PRODUCTS_REQUEST,
+    ADMIN_PRODUCTS_SUCCESS,
+    ADMIN_PRODUCTS_FAIL,
+
+    NEW_PRODUCT_REQUEST,
+    NEW_PRODUCT_SUCCESS,
+    NEW_PRODUCT_FAIL,
 
 
 } from "../constants/productConstants";
@@ -43,6 +50,39 @@ export const getProducts = (keyword = "", currentPage = 1, price, category, rati
       });
     }
   };
+
+
+
+//New product
+
+export const newProduct = (productData,) => async (dispatch) => {
+    try {
+        dispatch({type: NEW_PRODUCT_REQUEST});
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const {data} = await axios.post(`/api/v1/admin/product/new`, productData, config);
+
+        dispatch({
+            type: NEW_PRODUCT_SUCCESS,
+            payload: data
+        });
+
+    } catch (error) {
+
+        console.log(error.response)
+        dispatch({
+            type: NEW_PRODUCT_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
+
+
 
 //product detail single product
 
@@ -93,7 +133,24 @@ export const newReview = (reviewData) => async (dispatch) => {
 };
 
 
+//product detail single product for Admin
 
+export const getAdminProducts  = () => async (dispatch) => {
+    try {
+        dispatch({ type: ADMIN_PRODUCTS_REQUEST });
+        const { data } = await axios.get(`/api/v1/admin/products`);
+
+        dispatch({
+            type: ADMIN_PRODUCTS_SUCCESS,
+            payload: data.products,
+        });
+    } catch (error) {
+        dispatch({
+            type: ADMIN_PRODUCTS_FAIL,
+            payload: error.response.data.message,
+        });
+    }
+};
 
 
 
