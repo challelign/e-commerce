@@ -5,9 +5,10 @@ import MetaData from "../layout/MetaData";
 import {MDBDataTable} from "mdbreact";
 import Loader from "../layout/Loader";
 import {Link} from "react-router-dom";
-import {getAdminProducts, clearErrors} from "../../actions/productActions";
-
+import {getAdminProducts, clearErrors, deleteProduct} from "../../actions/productActions";
+import {DELETE_PRODUCT_RESET} from "../../constants/productConstants";
 import Sidebar from "./Sidebar";
+import {type} from "@testing-library/user-event/dist/type";
 
 const ProductsList = ({history}) => {
 
@@ -15,6 +16,7 @@ const ProductsList = ({history}) => {
     const alert = useAlert();
     const dispatch = useDispatch()
     const {loading, error, products} = useSelector(state => state.products)
+    const {error:deleteError, isDeleted} = useSelector(state => state.product)
 
     useEffect(() => {
 
@@ -23,7 +25,17 @@ const ProductsList = ({history}) => {
             alert.error(error);
             dispatch(clearErrors())
         }
-    }, [dispatch, alert, error])
+
+        if (deleteError) {
+            alert.error(deleteError);
+            dispatch(clearErrors())
+        }
+        if (isDeleted){
+            alert.success('Product Deleted successfully');
+            history.push('/admin/products');
+            dispatch({type: DELETE_PRODUCT_RESET})
+        }
+    }, [dispatch, alert, error, deleteError, isDeleted, history])
 
 
     const setProducts = () => {
@@ -60,7 +72,7 @@ const ProductsList = ({history}) => {
         products.forEach(product => {
             data.rows.push({
                 id: product._id,
-                Name: product.name,
+                name: product.name,
                 price: `$${product.price}`,
                 stock: product.stock,
                 actions:
@@ -69,7 +81,7 @@ const ProductsList = ({history}) => {
                             <i className="fa fa-pencil"></i>
                         </Link>
                         <button className="btn btn-danger py-1 px-2 ml-2"
-                            // onClick={() => deleteProductHandler(product._id)}
+                            onClick={() => deleteProductHandler(product._id)}
                         >
                             <i className="fa fa-trash"></i>
                         </button>
@@ -78,6 +90,11 @@ const ProductsList = ({history}) => {
         })
 
         return data;
+    }
+
+    const deleteProductHandler = (id)=>{
+        dispatch(deleteProduct(id))
+
     }
 
     return (
