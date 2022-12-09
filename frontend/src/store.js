@@ -7,7 +7,7 @@ import {authReducer, userReducer,forgetPasswordReducer} from './reducers/userRed
 
 
 import {cartReducer} from "./reducers/cartReducers";
-import {newOrderReducer, myOrdersReducer, orderDetailsReducer} from "./reducers/orederReducers";
+import {newOrderReducer, myOrdersReducer, orderDetailsReducer ,allOrdersReducer,orderReducer} from "./reducers/orederReducers";
 
 const reducer = combineReducers({
 
@@ -24,6 +24,10 @@ const reducer = combineReducers({
     newOrder:newOrderReducer,
     myOrdersRed: myOrdersReducer,
     orderDetails:orderDetailsReducer,
+
+    allOrders:allOrdersReducer,
+    order:orderReducer,
+
     newReview:newReviewReducer,
 
 })
