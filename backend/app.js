@@ -38,13 +38,21 @@ app.use(express.urlencoded({limit: "100mb", extended: true, parameterLimit: 5000
 
 
 
+/*
+app.use(express.json({limit: '50mb'}));
+app.use(bodyparser.json({ limit: "200mb" }));
+app.use(bodyparser.urlencoded({ limit: "200mb",  extended: true, parameterLimit: 1000000 }));
+*/
+
+
 app.use(express.json({limit: '50mb'}));
 app.use(bodyparser.json({ limit: "200mb" }));
 app.use(bodyparser.urlencoded({ limit: "200mb",  extended: true, parameterLimit: 1000000 }));
 
-
 //end fixing 413
 
+// app.use(express.json());
+// app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 app.use(fileUpload());
