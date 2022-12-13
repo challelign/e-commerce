@@ -1,8 +1,17 @@
 
+ # DB_LOCAL_URL = mongodb://localhost:27017/e-amazon
+# DB_LOCAL_URL = mongodb://localhost:27017/test?connectTimeoutMS=1000&bufferCommands=false&authSource=otherdb
+
+
 rcc-> == class component skeleton.
 rsc-> == stateless component skeleton.
 rsf-> == stateless named function skeleton.
 
+
+  const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`;
+
+  //un comment this to deploy local and comment the above
+  // const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
 #to use Stripe Payment card and other number use either one or two method
 1. Always authenticate	4000002760003184

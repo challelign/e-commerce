@@ -78,7 +78,11 @@ const resetUrl = `${req.protocol}://${req.get(
 
   */
 
-  const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
+
+  const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`;
+
+  //un comment this to deploy local and comment the above
+  // const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
   const message = `Your password reset token is as follow:\n\n${resetUrl}\n\nIf you have not requested this email, then ignore it.`;
 
