@@ -12,7 +12,8 @@ const connectDatabase = () => {
   // })
 
   mongoose
-    .connect(process.env.DB_LOCAL_URL, {
+    //  for local mongodb use this DB_LOCAL_URL
+    .connect(process.env.DB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       // useCreateIndex: true

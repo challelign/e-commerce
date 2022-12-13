@@ -6,7 +6,7 @@ import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
 import { login, clearErrors } from "../../actions/userActions";
 
-const Login = ({ history }) => {
+const Login = ({ history, location }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const alert = useAlert();
@@ -16,9 +16,15 @@ const Login = ({ history }) => {
     (state) => state.auth
   ); // auth is from userReducers
 
+  //this check it the user is checkout some item , and he is not logged in ,
+  // will add shipping to the url after login
+  // http://localhost:3000/login?redirect=shipping
+  const redirect = location.search? location.search.split('=')[1]:'/'
+//and take shipping else '/'
   useEffect(() => {
     if (isAuthenticated) {
-      history.push("/");
+      // history.push("/");
+      history.push(redirect)
     }
     if (error) {
       alert.error(error);

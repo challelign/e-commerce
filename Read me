@@ -1,3 +1,34 @@
+
+ # DB_LOCAL_URL = mongodb://localhost:27017/e-amazon
+# DB_LOCAL_URL = mongodb://localhost:27017/test?connectTimeoutMS=1000&bufferCommands=false&authSource=otherdb
+
+
+rcc-> == class component skeleton.
+rsc-> == stateless component skeleton.
+rsf-> == stateless named function skeleton.
+
+
+  const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`;
+
+  //un comment this to deploy local and comment the above
+  // const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
+
+#to use Stripe Payment card and other number use either one or two method
+1. Always authenticate	4000002760003184
+This card requires authentication on all transactions, regardless of how the card is set up.
+
+2.Testing interactively with no verification
+When testing interactively, use a card number, such as 4242 4242 4242 4242. Enter the card number in the Dashboard or in any payment form.
+
+Use a valid future date, such as 12/34.
+Use any three-digit CVC (four digits for American Express cards , 567 or 222).
+Use any value you like for other form fields.
+
+
+
+ To install all the depen
+ use npm i depname  --legacy-peer-deps
+
  I use git branch name =  chashop
 
     "react-router-dom": "5.3",

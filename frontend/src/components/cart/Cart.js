@@ -6,7 +6,7 @@ import MetaData from "../layout/MetaData";
 import {addItemToCart,removeItemFromCart} from "../../actions/cartActions";
 import {Link} from "react-router-dom";
 
-const Cart = () => {
+const Cart = ({history}) => {
 
     const alert = useAlert();
     const dispatch = useDispatch();
@@ -32,6 +32,10 @@ const Cart = () => {
         dispatch(addItemToCart(id, newQty))
     }
 
+    //when the user click checkout button and the user is not logged in it should be redirect to login?redirect=shipping page
+    const checkoutHandler = () =>{
+        history.push('/login?redirect=shipping')
+    }
 
     return (
         <Fragment>
@@ -98,7 +102,7 @@ const Cart = () => {
                                     <p>Est. total: <span className="order-summary-values">$ {cartItems.reduce((acc , item) => acc + item.quantity * item.price, 0).toFixed(2)}</span></p>
 
                                     <hr/>
-                                    <button id="checkout_btn" className="btn btn-primary btn-block">Check out</button>
+                                    <button id="checkout_btn" onClick={checkoutHandler} className="btn btn-primary btn-block">Check out</button>
                                 </div>
                             </div>
                         </div>
