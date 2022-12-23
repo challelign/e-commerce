@@ -6,7 +6,7 @@ const APIFeatures = require('../utils/apifFeatures')
 
 const cloudinary = require('cloudinary')
 
-// create new product =>    /api/v1/product/new
+// create new product =>    /api/v1/admin/product/new
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
     let images = []
@@ -95,7 +95,7 @@ exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
 })
 
 
-// Get single  prducts   => /api/v1/product/:id
+// Get single  product   => /api/v1/product/:id
 
 exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
     const product = await Product.findById(req.params.id.trim());
@@ -115,17 +115,12 @@ exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-// Update Product     => /api/product/:id
+// Update Product     => /api/admin/product/:id
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     let product = await Product.findById(req.params.id.trim());
     if (!product) {
 
         return next(new ErrorHandler('Product not Found', 404));
-
-        // return res.status(404).json({
-        //     success: false,
-        //     message: 'product not found'
-        // })
     }
 
 
@@ -178,11 +173,6 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     const product = await Product.findById(req.params.id.trim());
     if (!product) {
         return next(new ErrorHandler('Product not Found', 404));
-
-        // return res.status(404).json({
-        //     success:false,
-        //     message:"Product not found",
-        // })
     }
 
     //Deleting Images associated with the product
