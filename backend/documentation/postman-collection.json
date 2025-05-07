@@ -1,0 +1,1712 @@
+{
+  "info": {
+    "_postman_id": "c0912275-45d3-40e1-841d-a3feb75a505f",
+    "name": "Nature",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "10974073"
+  },
+  "item": [
+    {
+      "name": "Auth User",
+      "item": [
+        {
+          "name": "Signin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"aego ego\",\r\n    \"passwordConfirm\": \"123456789\",\r\n    \"isAuthenticated\": \"false\"\r\n}\r\n// {\r\n//         \"name\": \"cha two no user Test\",\r\n//         \"email\": \"cha@gmail.com\",\r\n//         \"password\": \"12345678\",\r\n//         \"passwordConfirm\": \"12345678\",\r\n//         \"changePasswordAt\": \"2023-05-12\"\r\n//     }\r\n// to validate check by set name or email or password misspale or delete the filed \r\n// {\r\n//     \"name\":\"chalie test\",\r\n//     \"email\":\"cha@gmail.com\",\r\n//     \"password\":\"12345678\",\r\n//     \"passwordConfirm\":\"12345678\"\r\n// }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/users/signup",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "users", "signup"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Admin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    // \"email\": \"other@gmail.com\",\r\n    // \"password\": \"123456789\"\r\n    // admin\r\n   \"email\": \"admin@natours.io\",\r\n    \"password\": \"test1234\"\r\n}\r\n// to validate check by set name or email or password misspale or delete the filed \r\n// {\r\n//     \"name\":\"chalie test\",\r\n//     \"email\":\"cha@gmail.com\",\r\n//     \"password\":\"12345678\",\r\n//     \"passwordConfirm\":\"12345678\"\r\n// }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/v1/users/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login as User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"sophie@example.com\",\r\n    \"password\": \"test1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login as Lead-guide",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    // \"email\": \"other@gmail.com\",\r\n    // \"password\": \"123456789\"\r\n    // admin\r\n   \"email\": \"steve@example.com\",\r\n    \"password\": \"test1234\"\r\n}\r\n// to validate check by set name or email or password misspale or delete the filed \r\n// {\r\n//     \"name\":\"chalie test\",\r\n//     \"email\":\"cha@gmail.com\",\r\n//     \"password\":\"12345678\",\r\n//     \"passwordConfirm\":\"12345678\"\r\n// }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login noSql injection",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": {\"$gt\":\"\"},\r\n    \"password\": \"123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/logout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "logout"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login two test",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"abe@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forget Password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n//    \"email\": \"admin@gmail.com\"\r\n   \"email\": \"chalie2123@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/users/forgetPassword",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "users", "forgetPassword"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "IsLoggedIn",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"email\": \"admin@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/users//isLoggedIn",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "users", "", "isLoggedIn"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Rest Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"jwt\", pm.response.json().token);\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"password\": \"passpass1\",\r\n    \"passwordConfirm\": \"passpass1\"\r\n}\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/resetPassword/78855fc2d1aa2b5d5cbb8c2e0f746afd0f160d565e69398374ccdda1575bf66d",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "resetPassword",
+                "78855fc2d1aa2b5d5cbb8c2e0f746afd0f160d565e69398374ccdda1575bf66d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update My Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [" \r", ""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"passwordCurrent\": \"passpass\",\r\n    \"password\":\"passpassq\",\r\n    \"passwordConfirm\": \"passpassq\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/users/updateMyPassword",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "users", "updateMyPassword"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update user",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/users/4",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "v1", "users", "4"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tours",
+      "item": [
+        {
+          "name": "get All Tours",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjOGExZDViMDE5MGIyMTQzNjBkYzA1NyIsImlhdCI6MTY5ODM4NTAwNiwiZXhwIjoxNzA2MTYxMDA2fQ.q-Zvv6UW6QAkJFcGFVyZM5o6XakyaTdNK8F-scv-SBk",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{URL}}api/v1/tours",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "tours"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "All-Tours Custom New",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/tours//All-Tours?page=1&limit=5",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "tours", "", "All-Tours"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All Tours Search 2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/tours/search?search=the &limit=6&page=4",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "tours", "search"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "the "
+                },
+                {
+                  "key": "limit",
+                  "value": "6"
+                },
+                {
+                  "key": "page",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All Tours Search Page Limit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/tours?limit=3&page=1",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "tours"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "3"
+                },
+                {
+                  "key": "search",
+                  "value": "the",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "the",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All Tours Route Error Test",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours/64eda43d55e4b53908a6e678",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours", "64eda43d55e4b53908a6e678"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Alias Top5 Cheap Tours",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours/top-5-cheaps",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours", "top-5-cheaps"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All tours Sort pric and More",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours?duration[gte]=&difficulty=&limit=3&page=1&fields=name,duration,price",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "price[gte]",
+                  "value": "300",
+                  "disabled": true
+                },
+                {
+                  "key": "duration[gte]",
+                  "value": ""
+                },
+                {
+                  "key": "difficulty",
+                  "value": ""
+                },
+                {
+                  "key": "limit",
+                  "value": "3"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "fields",
+                  "value": "name,duration,price"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All Tours parameter Pollution",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours?fields=name,duration&limit=19&page=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "price[gte]",
+                  "value": "300",
+                  "disabled": true
+                },
+                {
+                  "key": "difficulty",
+                  "value": "easy",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "name,duration"
+                },
+                {
+                  "key": "limit",
+                  "value": "19"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "duration",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All Tours parameter Pollution for Sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours?sort=duration&sort=price",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours"],
+              "query": [
+                {
+                  "key": "price[gte]",
+                  "value": "300",
+                  "disabled": true
+                },
+                {
+                  "key": "difficulty",
+                  "value": "easy",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "name,duration",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "duration"
+                },
+                {
+                  "key": "sort",
+                  "value": "price"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get Single Tour",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours/5c88fa8cf4afda39709c2955",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours", "5c88fa8cf4afda39709c2955"],
+              "query": [
+                {
+                  "key": "duration",
+                  "value": "5",
+                  "disabled": true
+                },
+                {
+                  "key": "difficulty",
+                  "value": "easy",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get Single Tour Using Slug",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours/?slug=the-forest-hiker",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours", ""],
+              "query": [
+                {
+                  "key": "difficulty",
+                  "value": "easy",
+                  "disabled": true
+                },
+                {
+                  "key": "slug",
+                  "value": "the-forest-hiker"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Tour",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours/5c88fa8cf4afda39709c2974",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours", "5c88fa8cf4afda39709c2974"],
+              "query": [
+                {
+                  "key": "duration",
+                  "value": "5",
+                  "disabled": true
+                },
+                {
+                  "key": "difficulty",
+                  "value": "easy",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Tour",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Diapora Test\",\r\n    \"ratingsAverage\": \"welcome\",\r\n    \"ratingsQuantity\": 2,\r\n    \"duration\": 20,\r\n    \"maxGroupSize\": 20,\r\n    \"difficulty\": \"difficult\",\r\n    \"price\": 1050,\r\n    \"priceDiscount\": 300,\r\n    \"imageCover\": \"tour-2-cover.jpg\"\r\n   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/tours",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "tours"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update Tour",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "imageCover",
+                  "type": "file",
+                  "src": "/D:/projects/JonasIO/natoursAPI/backend/public/img/tours/tour-9-cover.jpg",
+                  "disabled": true
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": "/D:/projects/JonasIO/natoursAPI/backend/public/img/tours/tour-5-3.jpg",
+                  "disabled": true
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": "/D:/projects/JonasIO/natoursAPI/backend/public/img/tours/tour-9-2.jpg",
+                  "disabled": true
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": "/D:/projects/JonasIO/natoursAPI/backend/public/img/tours/tour-2-cover.jpg",
+                  "disabled": true
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": "/D:/projects/JonasIO/natoursAPI/backend/public/img/tours/tour-5c88fa8cf4afda39709c2951-1697271081447-1.jpeg",
+                  "disabled": true
+                },
+                {
+                  "key": "imageCover",
+                  "type": "file",
+                  "src": "/C:/Users/TChallelign/Desktop/DSC_9521.JPG",
+                  "disabled": true
+                },
+                {
+                  "key": "price",
+                  "value": "500",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "The Forest Hiker",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "priceDiscount",
+                  "value": "50",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "description",
+                  "value": "Taitu Ethiopia tours are run by a group of experienced guides\nAll guides are involved during the selection and designing of our tours. Our guides apart from having years of experience and an extensive knowledge of, and passion for, the areas in which they work, they are well aware about the experience you look forward and the service you need before you set-off your foot from your home country – because they are also the part of the operation team.",
+                  "type": "text"
+                },
+                {
+                  "key": "summary",
+                  "value": "Great opportunity for adventure & travels\nOur services include domestic and international flight bookings, hotel reservations, car rentals, different safaris and tour packages. We also offer customized travel packages that are tailored as per client’s specific interest and time availability. Whether you are looking for adventure trips, camping safaris, family vacation, special interest tours and business trips, we have the expertise and experience to make your travel dreams a reality.",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/tours/652d17dc66e3a534bcc511f2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "tours", "652d17dc66e3a534bcc511f2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update Error Test",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Convert Name input to Slug Test\",\r\n    \"ratingsAverage\": 4,\r\n    \"difficulty\": \"medium\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/tours/5c88fa8cf4afda39709c2951",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "v1", "tours", "5c88fa8cf4afda39709c2951"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Tour within radius",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/tours/tours-within/5000/center/25.732586,-80.256994/unit/mi",
+              "host": ["{{URL}}api"],
+              "path": [
+                "v1",
+                "tours",
+                "tours-within",
+                "5000",
+                "center",
+                "25.732586,-80.256994",
+                "unit",
+                "mi"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Distances to Tours From Points",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [""],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/tours/distances/25.790654,-80.130045/unit/km",
+              "host": ["{{URL}}api"],
+              "path": [
+                "v1",
+                "tours",
+                "distances",
+                "25.790654,-80.130045",
+                "unit",
+                "km"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "get All Reviews",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/reviews",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "reviews"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All Reviews with Ratting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/reviews?rating=4",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "reviews"],
+              "query": [
+                {
+                  "key": "rating",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete  Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}api/v1/reviews/652fbd6f4e2bdc23dc91c14e",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "reviews", "652fbd6f4e2bdc23dc91c14e"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/reviews/64f19789a7bf73126caa654c",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "reviews", "64f19789a7bf73126caa654c"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Review",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/reviews/64f1a3c02b9ad333ac293df7",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "reviews", "64f1a3c02b9ad333ac293df7"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"review\": \"Handle FactoryFinal Virtual Populate\",\r\n    \"rating\": 5,\r\n    \"tour\": \"5c88fa8cf4afda39709c2955\",\r\n    \"user\": \"64edc99b60ae4f4df8d2f4c7\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/reviews",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "reviews"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "get all users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjOGExZTFhMmY4ZmI4MTRiNTZmYTE4MiIsImlhdCI6MTczNDQyMTg0MCwiZXhwIjoxNzQyMTk3ODQwfQ.YgAfSBU2zlyAP4g7KE4zOmghR5nxZ7mJelxwkDkoIFE",
+                "name": "cookie",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "no-cache",
+                "name": "cache-control",
+                "type": "text"
+              },
+              {
+                "key": "Postman-Token",
+                "value": "<calculated when request is sent>",
+                "name": "postman-token",
+                "type": "text"
+              },
+              {
+                "key": "Host",
+                "value": "<calculated when request is sent>",
+                "name": "host",
+                "type": "text"
+              },
+              {
+                "key": "User-Agent",
+                "value": "PostmanRuntime/7.39.1",
+                "name": "user-agent",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "name": "accept",
+                "type": "text"
+              },
+              {
+                "key": "Accept-Encoding",
+                "value": "gzip, deflate, br",
+                "name": "accept-encoding",
+                "type": "text"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive",
+                "name": "connection",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0LCJpc19hY3RpdmUiOjEsInVzZXJuYW1lIjoiYWJlIiwicGFzc3dvcmQiOiIkMmEkMTAkMlVBTlFlYXhQSzFPWWVFL0FJL2RUdTE0VnprWGk1ZGFLbjZ1ZlgzN2ZWQlJ6YXM0QnVKNVMiLCJwYXNzd29yZENvbmZpcm0iOiIxMjM0NTY3ODkiLCJicmFuY2hfY29kZSI6IjEwNSIsImJyYW5jaCI6Ik1haW4gQnJhbmNoIiwicG9zaXRpb24iOiJKdW5pb3IgUHJvZ3JhbW1lciIsImZpcnN0X25hbWUiOiJDaGFsbGVsaWduIiwiR3JvdXAiOiJCT1Jlc291cmNlIiwiYnJhbmNoX3R5cGUiOiJCUiIsImJyYW5jaF9pZCI6IjE2MCJ9LCJpYXQiOjE2OTk4NzMwMjMsImV4cCI6MTY5OTk1OTQyM30.r3opxPzm_5zMhuvy5gI2xutNT08Ket4PYOXN6-FMQKI",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all users W role",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users?role=admin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users"],
+              "query": [
+                {
+                  "key": "role",
+                  "value": "admin"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get user",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/5c8a1e1a2f8fb814b56fa182",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "5c8a1e1a2f8fb814b56fa182"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"chalie@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"passwordConfirm\": \"12345678\",\r\n    \"name\": \"cha\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"role\": \"admin\",\r\n    \"isAuthenticated\": \"false\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/users/5c8a211f2f8fb814b56fa188",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "users", "5c8a211f2f8fb814b56fa188"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete any user",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/64f1902af68bd83e74f44d93",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "64f1902af68bd83e74f44d93"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update current login data",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Sophie Louise Hart chalie",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "photo",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/users/updateMe",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "users", "updateMe"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get current login user",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/me",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "me"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete current login user",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3008/api/v1/users/deleteMe",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3008",
+              "path": ["api", "v1", "users", "deleteMe"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tours/Review",
+      "item": [
+        {
+          "name": "Create new Review On Tour",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"review\": \"Test The Forest Hiker\",\r\n    \"rating\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/tours/5c88fa8cf4afda39709c2955/reviews",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "tours", "5c88fa8cf4afda39709c2955", "reviews"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Review On Tour",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"review\": \"Reviw with user and tour from the back eind Test Reviw\",\r\n    \"rating\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/tours/5c88fa8cf4afda39709c2955/reviews",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "tours", "5c88fa8cf4afda39709c2955", "reviews"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Review On Tour W Ratting",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"review\": \"Reviw with user and tour from the back eind Test Reviw\",\r\n    \"rating\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}api/v1/tours/5c88fa8cf4afda39709c2955/reviews",
+              "host": ["{{URL}}api"],
+              "path": ["v1", "tours", "5c88fa8cf4afda39709c2955", "reviews"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

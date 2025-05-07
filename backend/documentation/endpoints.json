@@ -1,0 +1,151 @@
+[
+  {
+    "path": "/api/cloudinary/export-images",
+    "methods": ["GET"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/products",
+    "methods": ["GET"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/admin/products",
+    "methods": ["GET"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/product/:id",
+    "methods": ["GET"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/admin/product/new",
+    "methods": ["POST"],
+    "middlewares": ["anonymous", "anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/admin/product/:id",
+    "methods": ["PUT", "DELETE"],
+    "middlewares": [
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous"
+    ]
+  },
+  {
+    "path": "/api/v1/review",
+    "methods": ["PUT"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/reviews",
+    "methods": ["GET", "DELETE"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/register",
+    "methods": ["POST"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/login",
+    "methods": ["POST"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/password/reset",
+    "methods": ["POST"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/password/reset/:token",
+    "methods": ["PUT"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/logout",
+    "methods": ["GET"],
+    "middlewares": ["anonymous"]
+  },
+  {
+    "path": "/api/v1/me",
+    "methods": ["GET"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/password/update",
+    "methods": ["PUT"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/me/update",
+    "methods": ["PUT"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/admin/users",
+    "methods": ["GET"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/admin/user/:id",
+    "methods": ["GET", "PUT", "DELETE"],
+    "middlewares": [
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous"
+    ]
+  },
+  {
+    "path": "/api/v1/payment/process",
+    "methods": ["POST"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/stripeapi",
+    "methods": ["GET"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/order/new",
+    "methods": ["POST"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/order/:id",
+    "methods": ["GET"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/orders/me",
+    "methods": ["GET"],
+    "middlewares": ["anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/admin/orders",
+    "methods": ["GET"],
+    "middlewares": ["anonymous", "anonymous", "anonymous"]
+  },
+  {
+    "path": "/api/v1/admin/order/:id",
+    "methods": ["PUT", "DELETE"],
+    "middlewares": [
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous",
+      "anonymous"
+    ]
+  }
+]

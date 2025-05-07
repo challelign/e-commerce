@@ -1,0 +1,22 @@
+# cloudinary_images.json
+
+this file is generated from the cloudinary resource images
+
+# endpoints.json
+
+this file generated from the all routes
+
+# postman_endpoints.json
+
+this file is generated form endpoints.json inorder to match postman file format
+
+# to generate Swager documentation from postman collection
+
+check this video
+https://www.youtube.com/watch?v=TUEhfPv99cQ&t=15890s
+Node.js REST API Tutorial 🚀 Express, MongoDB, Swagger Docs & Deployment🎯
+
+setp 1 export as json file form you postman and using this site past the exported postman collection json file and OpenAPI Specification from select JSON and convert
+https://postmantoopenapiconverter.netlify.app/
+
+step two that in the documentation folder create openApi.json and past the converted json file

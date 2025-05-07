@@ -1,10 +1,71 @@
 const app = require("./app");
-
+const fs = require("fs");
+const path = require("path");
+const swaggerUi = require("swagger-ui-express");
 const connectDatabase = require("./config/database");
 
 const dotenv = require("dotenv");
 
 const cloudinary = require("cloudinary");
+
+// auto-generate endpoints
+const listEndpoints = require("express-list-endpoints");
+
+const endpoints = listEndpoints(app);
+
+//STEP ONE TO EXPORT ENDPOINT COLLECTION
+// you cannot create controller for this because it is not generate all the endpoints
+app.get("/api/v1/endpoints", (req, res) => {
+  // Make sure the documentation folder exists
+  const outputDir = path.join(__dirname, "documentation");
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+  const filePath = path.join(outputDir, "endpoints.json");
+
+  // Save to JSON file inside documentation folder
+  fs.writeFileSync(filePath, JSON.stringify(endpoints, null, 2));
+
+  console.log("API Endpoints exported to documentation/endpoints.json");
+  res.json({
+    message: "API Endpoints exported to documentation/endpoints.json",
+    endpoints: endpoints,
+  });
+});
+
+// STEP TWO TO EXPORT ENDPOINT COLLECTION TO POSTMAN COLLECTION FORMAT
+
+const postmanRoute = require("./routes/postmanEndpointsRoute");
+app.use("/api/v1/postman", postmanRoute);
+
+// SWAGGER DOCUMENTATION USING POSTMAN COLLECTION .JSON FILE
+
+/* const swaggerDocumentation = JSON.parse(
+  fs.readFileSync("./documentation/openAi.json", "utf-8")
+); */
+
+const filePath = path.join(__dirname, "documentation/openAi.json");
+
+if (!fs.existsSync(filePath)) {
+  console.error("File not found at:", filePath);
+  process.exit(1); // Stop the app if needed
+}
+
+const swaggerDocumentationContent = JSON.parse(
+  fs.readFileSync(filePath, "utf-8")
+);
+console.log("Current working directory:", process.cwd());
+
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocumentationContent)
+);
+
+app.get("/", (req, res) => {
+  res.json("Welcome to the E-commerce API documentation");
+});
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 // Handle Uncaught exception
 process.on("uncaughtException", (err) => {

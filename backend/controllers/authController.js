@@ -10,22 +10,29 @@ const cloudinary = require("cloudinary");
 
 // Register a user   => /api/v1/register
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
-  const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
-    folder: "avatars",
-    width: 150,
-    crop: "scale",
-  });
+  let result;
+  if (req.body.avatar) {
+    result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+      folder: "avatars",
+      width: 150,
+      crop: "scale",
+    });
+  }
 
   const { name, email, password } = req.body;
+
+  const avatar = req.body.avatar
+    ? {
+        public_id: result.public_id,
+        url: result.secure_url,
+      }
+    : undefined;
 
   const user = await User.create({
     name,
     email,
     password,
-    avatar: {
-      public_id: result.public_id,
-      url: result.secure_url,
-    },
+    avatar: avatar,
   });
 
   sendToken(user, 200, res);
@@ -71,15 +78,16 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // Create reset password url
-/*
+  /*
 const resetUrl = `${req.protocol}://${req.get(
     "host"
   )}/password/reset/${resetToken}`;
 
   */
 
-
-  const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`;
+  const resetUrl = `${req.protocol}://${req.get(
+    "host"
+  )}/password/reset/${resetToken}`;
 
   //un comment this to deploy local and comment the above
   // const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
@@ -95,7 +103,7 @@ const resetUrl = `${req.protocol}://${req.get(
 
     res.status(200).json({
       success: true,
-      message: `Email sent to: ${user.email}`,
+      message: `Email sent to: ${user.email} {}`,
     });
   } catch (error) {
     user.resetPasswordToken = undefined;

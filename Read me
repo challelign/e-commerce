@@ -1,4 +1,15 @@
 
+# AFTER CLONING THE REPOSITORY
+# 1. Install all dependencies
+npm i  --legacy-peer-deps
+ #THEN RUN THIS COMMAND  [CMD]
+ set NODE_OPTIONS=--openssl-legacy-provider  
+ 
+
+
+
+
+
  # DB_LOCAL_URL = mongodb://localhost:27017/e-amazon
 # DB_LOCAL_URL = mongodb://localhost:27017/test?connectTimeoutMS=1000&bufferCommands=false&authSource=otherdb
 

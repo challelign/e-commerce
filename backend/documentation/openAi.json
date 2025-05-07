@@ -1,0 +1,774 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Nature",
+    "description": "",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "https://postman-echo.com"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": ["Tours/Review"],
+        "summary": "Create new Review On Tour",
+        "description": "",
+        "operationId": "post",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "review": "Test The Forest Hiker",
+                  "rating": 5
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Tours/Review"],
+        "summary": "Get All Review On Tour W Ratting",
+        "description": "",
+        "operationId": "get",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Users"],
+        "summary": "update current login data",
+        "description": "",
+        "operationId": "patch",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Sophie Louise Hart chalie"
+                  },
+                  "photo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Reviews"],
+        "summary": "Delete  Review",
+        "description": "",
+        "operationId": "delete",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/login": {
+      "post": {
+        "tags": ["Auth User"],
+        "summary": "Login two test",
+        "description": "",
+        "operationId": "postapiv1userslogin",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "abe@gmail.com",
+                  "password": "12345678"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/logout": {
+      "get": {
+        "tags": ["Auth User"],
+        "summary": "Logout",
+        "description": "",
+        "operationId": "getapiv1userslogout",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/resetPassword/78855fc2d1aa2b5d5cbb8c2e0f746afd0f160d565e69398374ccdda1575bf66d": {
+      "patch": {
+        "tags": ["Auth User"],
+        "summary": "Rest Password",
+        "description": "",
+        "operationId": "patchapiv1usersresetPassword78855fc2d1aa2b5d5cbb8c2e0f746afd0f160d565e69398374ccdda1575bf66d",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "password": "passpass1",
+                  "passwordConfirm": "passpass1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/4": {
+      "patch": {
+        "tags": ["Auth User"],
+        "summary": "update user",
+        "description": "",
+        "operationId": "patchapiv1users4",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tours/64eda43d55e4b53908a6e678": {
+      "get": {
+        "tags": ["Tours"],
+        "summary": "get All Tours Route Error Test",
+        "description": "",
+        "operationId": "getapiv1tours64eda43d55e4b53908a6e678",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tours/top-5-cheaps": {
+      "get": {
+        "tags": ["Tours"],
+        "summary": "Alias Top5 Cheap Tours",
+        "description": "",
+        "operationId": "getapiv1tourstop5cheaps",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tours": {
+      "get": {
+        "tags": ["Tours"],
+        "summary": "get All Tours parameter Pollution for Sorting",
+        "description": "",
+        "operationId": "getapiv1tours",
+        "parameters": [
+          {
+            "name": "price[gte]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "300"
+          },
+          {
+            "name": "difficulty",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "easy"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "name,duration"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "duration"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "price"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tours/5c88fa8cf4afda39709c2955": {
+      "get": {
+        "tags": ["Tours"],
+        "summary": "get Single Tour",
+        "description": "",
+        "operationId": "getapiv1tours5c88fa8cf4afda39709c2955",
+        "parameters": [
+          {
+            "name": "duration",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "5"
+          },
+          {
+            "name": "difficulty",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "easy"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tours/": {
+      "get": {
+        "tags": ["Tours"],
+        "summary": "get Single Tour Using Slug",
+        "description": "",
+        "operationId": "getapiv1tours",
+        "parameters": [
+          {
+            "name": "difficulty",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "easy"
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "the-forest-hiker"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tours/5c88fa8cf4afda39709c2974": {
+      "delete": {
+        "tags": ["Tours"],
+        "summary": "Delete Tour",
+        "description": "",
+        "operationId": "deleteapiv1tours5c88fa8cf4afda39709c2974",
+        "parameters": [
+          {
+            "name": "duration",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "5"
+          },
+          {
+            "name": "difficulty",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "easy"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tours/652d17dc66e3a534bcc511f2": {
+      "patch": {
+        "tags": ["Tours"],
+        "summary": "update Tour",
+        "description": "",
+        "operationId": "patchapiv1tours652d17dc66e3a534bcc511f2",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "imageCover": {
+                    "type": "string"
+                  },
+                  "images": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "string",
+                    "example": "500"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "The Forest Hiker"
+                  },
+                  "priceDiscount": {
+                    "type": "string",
+                    "example": "50"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Taitu Ethiopia tours are run by a group of experienced guides\nAll guides are involved during the selection and designing of our tours. Our guides apart from having years of experience and an extensive knowledge of, and passion for, the areas in which they work, they are well aware about the experience you look forward and the service you need before you set-off your foot from your home country – because they are also the part of the operation team."
+                  },
+                  "summary": {
+                    "type": "string",
+                    "example": "Great opportunity for adventure & travels\nOur services include domestic and international flight bookings, hotel reservations, car rentals, different safaris and tour packages. We also offer customized travel packages that are tailored as per client’s specific interest and time availability. Whether you are looking for adventure trips, camping safaris, family vacation, special interest tours and business trips, we have the expertise and experience to make your travel dreams a reality."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tours/5c88fa8cf4afda39709c2951": {
+      "patch": {
+        "tags": ["Tours"],
+        "summary": "update Error Test",
+        "description": "",
+        "operationId": "patchapiv1tours5c88fa8cf4afda39709c2951",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Convert Name input to Slug Test",
+                  "ratingsAverage": 4,
+                  "difficulty": "medium"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "get all users W role",
+        "description": "",
+        "operationId": "getapiv1users",
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "admin"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Users"],
+        "summary": "create user",
+        "description": "",
+        "operationId": "postapiv1users",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "chalie@gmail.com",
+                  "password": "12345678",
+                  "passwordConfirm": "12345678",
+                  "name": "cha"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/5c8a1e1a2f8fb814b56fa182": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "get user",
+        "description": "",
+        "operationId": "getapiv1users5c8a1e1a2f8fb814b56fa182",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/64f1902af68bd83e74f44d93": {
+      "delete": {
+        "tags": ["Users"],
+        "summary": "delete any user",
+        "description": "",
+        "operationId": "deleteapiv1users64f1902af68bd83e74f44d93",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/me": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "get current login user",
+        "description": "",
+        "operationId": "getapiv1usersme",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/deleteMe": {
+      "delete": {
+        "tags": ["Users"],
+        "summary": "delete current login user",
+        "description": "",
+        "operationId": "deleteapiv1usersdeleteMe",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "digestAuth": {
+        "type": "http",
+        "scheme": "digest"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth User",
+      "description": ""
+    },
+    {
+      "name": "Tours",
+      "description": ""
+    },
+    {
+      "name": "Reviews",
+      "description": ""
+    },
+    {
+      "name": "Users",
+      "description": ""
+    },
+    {
+      "name": "Tours/Review",
+      "description": ""
+    }
+  ]
+}

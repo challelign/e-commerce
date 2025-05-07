@@ -11,9 +11,14 @@ const connectDatabase = () => {
   //     }
   // })
 
+  const local_db = process.env.DB_LOCAL_URL;
+  const server_db = process.env.DB_URI;
+
+  process.env.NODE_ENV === "PRODUCTION"
+    ? console.log("server_db", server_db)
+    : console.log("local_db", local_db);
   mongoose
-    //  for local mongodb use this DB_LOCAL_URL
-    .connect(process.env.DB_URI, {
+    .connect(process.env.NODE_ENV === "PRODUCTION" ? server_db : local_db, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       // useCreateIndex: true

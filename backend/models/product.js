@@ -195,11 +195,11 @@ const productSchema = new mongoose.Schema({
   ],
 
   // comment this user when seeder ur database
-  user: {
-    type: mongoose.Schema.ObjectId,
-    ref: "User",
-    required: true,
-  },
+  // user: {
+  //   type: mongoose.Schema.ObjectId,
+  //   ref: "User",
+  //   required: true,
+  // },
   createdAt: {
     type: Date,
     default: Date.now,

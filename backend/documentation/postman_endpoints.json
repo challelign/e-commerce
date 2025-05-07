@@ -1,0 +1,577 @@
+{
+  "info": {
+    "name": "Generated API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /api/cloudinary/export-images",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/cloudinary/export-images",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "cloudinary",
+            "export-images"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/products",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/admin/products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/products",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/product/:id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/product/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "product",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/v1/admin/product/new",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/product/new",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "product",
+            "new"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /api/v1/admin/product/:id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/product/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "product",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /api/v1/admin/product/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/product/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "product",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /api/v1/review",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/review",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "review"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/reviews",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/reviews",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "reviews"
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /api/v1/reviews",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/reviews",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "reviews"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/v1/register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/register",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/v1/login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/v1/password/reset",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/password/reset",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "password",
+            "reset"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /api/v1/password/reset/:token",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/password/reset/:token",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "password",
+            "reset",
+            ":token"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/logout",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/logout",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "logout"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/me",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/me",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "me"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /api/v1/password/update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/password/update",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "password",
+            "update"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /api/v1/me/update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/me/update",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "me",
+            "update"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/admin/users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/users",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "users"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/admin/user/:id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/user/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "user",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /api/v1/admin/user/:id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/user/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "user",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /api/v1/admin/user/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/user/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "user",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/v1/payment/process",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/payment/process",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "payment",
+            "process"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/stripeapi",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/stripeapi",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "stripeapi"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/v1/order/new",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/order/new",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "order",
+            "new"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/order/:id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/order/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "order",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/orders/me",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/orders/me",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "orders",
+            "me"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/v1/admin/orders",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/orders",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "orders"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /api/v1/admin/order/:id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/order/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "order",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /api/v1/admin/order/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/admin/order/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "order",
+            ":id"
+          ]
+        }
+      }
+    }
+  ]
+}
